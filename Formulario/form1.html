@@ -1,0 +1,82 @@
+<html>
+    <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+
+            <script>
+                    $(document).ready(function(){
+                        $("#botao").click(function(){
+                          var nome = $("#nome").val();
+                          
+                          if(nome == ""){
+                              alert('Por favor prencha o campo nome');
+                          }
+                        })
+                    });
+            
+
+                    $(document).ready(function(){
+                        $("#botao").click(function(){
+                          var email = $("#email").val();
+                          
+                          if(email == ""){
+                              alert('Por favor prencha o campo email');
+                          }
+                        })
+                    });
+
+
+                    $(document).ready(function(){
+                        $("#botao").click(function(){
+                          var sexoM = $("#sexoM").val();
+                          var sexoF = $("#sexoM").val();
+                          if((sexoM == 0) && (sexoF == 0) ) {
+                              alert('Por favor prencha o campo email');
+                          }
+                        })
+                    });
+            </script>
+
+    </head>
+    <body>
+        <form name="calc">
+            <label for="nome">Nome:</label>
+            <input type="Text" name="nome" id="nome" size="40">
+            <label>Sexo:</label>
+            <input type="radio" name="sexo" id="sexoM" value="M"> M
+            <input type="radio" name="sexo" id="sexoF" value="F"> F
+            <br><br>
+            <label for="nome">E-mail:</label>
+            <input type="email" name="email" id="email" size="40">
+            <br><br>
+            <label for="navegadores">Nevegador preferido: </label>
+            <select name="navegadores" selected="Browser">
+                <option value="Goggle Chrome">Goggle Chrome</option>
+                <option value="Safari">Safari</option>
+                <option value="Mozilla Firefox">Mozilla Firefox</option>
+                <option value="Microsoft Edge">Microsoft Edge</option>
+            </select>
+            <br><br>
+
+            <div>
+                    <input type = "checkbox" id = "subscribeNews" nome = "subscribe" value = "newsletter">
+                    <label for = "subscribeNews"> Futebol </label>
+    
+                    <input type = "checkbox" id = "subscribeNews" nome = "subscribe" value = "newsletter">
+                    <label for = "subscribeNews"> Basquete </label>
+    
+                    <input type = "checkbox" id = "subscribeNews" nome = "subscribe" value = "newsletter">
+                    <label for = "subscribeNews"> Tenis </label>
+    
+                    <input type = "checkbox" id = "subscribeNews" nome = "subscribe" value = "newsletter">
+                    <label for = "subscribeNews"> Volei </label>
+                    
+                    <input type = "checkbox" id = "subscribeNews" nome = "subscribe" value = "newsletter">
+                    <label for = "subscribeNews"> Handboll </label>
+            </div>
+            <button type="submit" class="btn btn-primary" id='botao'> Enviar</button>
+
+            
+        </form>
+
+    </body>
+</html>
