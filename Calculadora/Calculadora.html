@@ -1,105 +1,51 @@
 <!DOCTYPE html>
 <style>
-{
-    padding: 0;
-    margin: 0;
-}
-#title{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    margin: 0px;
-}
-.main{
-    margin: 0 auto;
-}
-#n0{
-    margin-left: 54px;
-}
-.button{
-    width: 50px;
-    height: 50px;
-    font-size: 25px;
-    margin: 2;
-}
-.textview{
-    width: 211px;
-    height: 30px;
-}
 </style>
 
 <script>
-    function insert(num){
-        document.form.textview.value = document.form.textview.value + num;
-    }
-    function equal(){
-        exp = document.form.textview.value;
-        if(exp){
-        document.form.textview.value = eval(exp);
-    }
-    }
-    function c(){
-        document.form.textview.value = "";
-    }
-    function back(){
-        var exp = document.form.textview.value;
-        document.form.textview.value = exp.substring(0, exp.length-1);
-    }
+
 </script>
+
 <html>
     <head>
-        <meta charset='utf-8' lang='pt-br'>
-        <link rel="stylesheet" href="_css/style.css">
-        <script src="_js/calc.js"></script>
+            <script herf="css.css"> type="text/css"</script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
-        <div>
-            <h1 id='title'>Calculadora</h1>
-            <div class='main'>
-                <form name='form'> 
-                    <input class="textview" name='textview'> 
-                </form>                  
-                    <table>
-                        <td>
-                            <input type="button" class='button' onclick='c()' value="C">
-                            <input type="button" class='button' onclick="back()" value="<">
-                            <input type="button" class='button' onclick="insert('/')" value="/">
-                            <input type="button" class='button' onclick="insert('*')" value="*">
-                        </td>
-                        <tr>
-                            <td>
-                                <input type="button" class='button' onclick="insert(7)" value="7">
-                                <input type="button" class='button' onclick="insert(8)" value="8">
-                                <input type="button" class='button' onclick="insert(9)" value="9">
-                                <input type="button" class='button' onclick="insert('+')" value="+">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="button" class='button' onclick="insert(4)" value="4">
-                                <input type="button" class='button' onclick="insert(5)" value="5">
-                                <input type="button" class='button' onclick="insert(6)" value="6">
-                                <input type="button" class='button' onclick="insert('-')" value="-">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="button" class='button' onclick="insert(1)" value="1">
-                                <input type="button" class='button' onclick="insert(2)" value="2">
-                                <input type="button" class='button' onclick="insert(3)" value="3">
-                                <input type="button" class='button' onclick='equal()' value="=">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="hidden">
-                                <input type='button' value='0' onclick="insert(0)" class='button' id='n0'>
-                                <input type='button' value='.' onclick="insert('.')" class='button' id='n0'>
-                            </td>
-                        </tr>
-                </form>               
-            </div>
-        </div>
+         <input type="text" value="" id="resultado" style="height:35px;"><br /><br />
+        <input class="btn" type="button" value="1" id="1">
+        <input class="btn" type="button" value="2" id="2">
+        <input class="btn" type="button" value="3" id="3">
+        <input class="btn" type="button" value="+" id="+"><br />
+        <input class="btn" type="button" value="4" id="4">
+        <input class="btn" type="button" value="5" id="5">
+        <input class="btn" type="button" value="6" id="6">
+        <input class="btn" type="button" value="-" id="-"><br />
+        <input class="btn" type="button" value="7" id="7">
+        <input class="btn" type="button" value="8" id="8">
+        <input class="btn" type="button" value="9" id="9">
+        <input class="btn" type="button" value="*" id="*"><br />
+        <input class="btn" type="button" value="0" id="0">
+        <input class="btn" type="button" value="=" id="=">
+        <input class="btn" type="button" value="C" id="C">
+        <input class="btn" type="button" value="/" id="/">
     </body>
+<script>
+        $("input:button").click(function(){
+        vlr = $(this).val();
+        atual = $("#resultado").val();
+        if(vlr=="C"){
+            $("#resultado").val("");
+        }else{
+            if(vlr=="="){
+                $("#resultado").val(eval(atual));
+            }else{
+                $("#resultado").val(atual + vlr);
+            }
+        }
+    })
+</script>
+
 </html>
 
 
