@@ -3,80 +3,68 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
 
             <script>
-                    $(document).ready(function(){
-                        $("#botao").click(function(){
-                          var nome = $("#nome").val();
-                          
-                          if(nome == ""){
-                              alert('Por favor prencha o campo nome');
-                          }
-                        })
-                    });
-            
+                $().ready(()=>{       
+                    var erros = []
+                    $("#botao").click(()=>{
+                        
+                        nome = $("#nome").val()
+                        if(!nome || nome == undefined || nome == null){
+                            erros.push("\n"+"Nome inválido")
+                        }
+                        email = $("#email").val() 
+                        if(!email || email == undefined || email == null){
+                            erros.push("\n"+"E-mail inválido")
+                        }
+                        sexo = $("input[name=sexo]:checked").val()
+                        if(!sexo || sexo == undefined || sexo == null){
+                            erros.push("\n"+"Por Favor Escolha Preencha seu Genero")
+                        }
+                        navegador = $("select[name=navegadores]").val()
+                        if(!navegador || navegador == undefined || navegador == null){
+                            erros.push("\n"+"Por Favor Escolha um navegador")
+                        }
+                        esporte = $("input[name=esporte]:checked").val()
+                        if(!esporte || esporte == undefined || esporte == null){
+                            erros.push("\n"+"Por Favor Escolha um navegador")
+                        }
 
-                    $(document).ready(function(){
-                        $("#botao").click(function(){
-                          var email = $("#email").val();
-                          
-                          if(email == ""){
-                              alert('Por favor prencha o campo email');
-                          }
-                        })
-                    });
+                        alert(erros);
+                    
+                    })
 
 
-                    $(document).ready(function(){
-                        $("#botao").click(function(){
-                          var sexoM = $("#sexoM").val();
-                          var sexoF = $("#sexoM").val();
-                          if((sexoM == 0) && (sexoF == 0) ) {
-                              alert('Por favor prencha o campo email');
-                          }
-                        })
-                    });
+
+                })
+        
             </script>
-
     </head>
     <body>
         <form name="calc">
             <label for="nome">Nome:</label>
             <input type="Text" name="nome" id="nome" size="40">
             <label>Sexo:</label>
-            <input type="radio" name="sexo" id="sexoM" value="M"> M
-            <input type="radio" name="sexo" id="sexoF" value="F"> F
+            <input type="radio" name="sexo" id="sexoM" value="1"> M
+            <input type="radio" name="sexo" id="sexoF" value="2"> F
             <br><br>
             <label for="nome">E-mail:</label>
             <input type="email" name="email" id="email" size="40">
             <br><br>
             <label for="navegadores">Nevegador preferido: </label>
             <select name="navegadores" selected="Browser">
-                <option value="Goggle Chrome">Goggle Chrome</option>
-                <option value="Safari">Safari</option>
-                <option value="Mozilla Firefox">Mozilla Firefox</option>
-                <option value="Microsoft Edge">Microsoft Edge</option>
+                <option value="1">Goggle Chrome</option>
+                <option value="2">Safari</option>
+                <option value="3">Mozilla Firefox</option>
+                <option value="4">Microsoft Edge</option>
             </select>
             <br><br>
-
             <div>
-                    <input type = "checkbox" id = "subscribeNews" nome = "subscribe" value = "newsletter">
-                    <label for = "subscribeNews"> Futebol </label>
-    
-                    <input type = "checkbox" id = "subscribeNews" nome = "subscribe" value = "newsletter">
-                    <label for = "subscribeNews"> Basquete </label>
-    
-                    <input type = "checkbox" id = "subscribeNews" nome = "subscribe" value = "newsletter">
-                    <label for = "subscribeNews"> Tenis </label>
-    
-                    <input type = "checkbox" id = "subscribeNews" nome = "subscribe" value = "newsletter">
-                    <label for = "subscribeNews"> Volei </label>
-                    
-                    <input type = "checkbox" id = "subscribeNews" nome = "subscribe" value = "newsletter">
-                    <label for = "subscribeNews"> Handboll </label>
+                    <input type="checkbox" name="esporte" value="1"> Futebol
+                    <input type="checkbox" name="esporte" value="2"> Basquet
+                    <input type="checkbox" name="esporte" value="3"> Tenis
+                    <input type="checkbox" name="esporte" value="4"> Volei
+                    <input type="checkbox" name="esporte" value="5"> Handbol
             </div>
-            <button type="submit" class="btn btn-primary" id='botao'> Enviar</button>
-
-            
+            <button type="submit" class="btn btn-primary" id='botao'> Enviar</button>    
         </form>
-
     </body>
 </html>
