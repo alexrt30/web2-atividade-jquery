@@ -5,7 +5,7 @@
             <script>
                 $().ready(()=>{       
                     var erros = []
-                    $("#botao").click(()=>{
+                    $("#enviar").click(()=>{
                         
                         nome = $("#nome").val()
                         if(!nome || nome == undefined || nome == null){
@@ -27,13 +27,22 @@
                         if(!esporte || esporte == undefined || esporte == null){
                             erros.push("\n"+"Por Favor Escolha um navegador")
                         }
-
+                        comentario = $("#comentario").val()
+                        if(!comentario || comentario == undefined || comentario == null){
+                            erros.push("\n"+"Contario inválido")
+                        }
                         alert(erros);
-                    
                     })
 
-
-
+                    $("#limpar").click(()=>{
+                        
+                        $("#nome").val() = ''
+                        $("#email").val() = ''
+                        $("#input[name=sexo]:checked").val() = ''
+                        $("#select[name=navegadores]").val() = ''
+                        $("#input[name=esporte]:checked").val() = ''
+                        $("#comentario").val() = ''
+                    })
                 })
         
             </script>
@@ -41,13 +50,13 @@
     <body>
         <form name="calc">
             <label for="nome">Nome:</label>
-            <input type="Text" name="nome" id="nome" size="40">
+            <input type="text" name="nome" id="nome" size="40">
             <label>Sexo:</label>
             <input type="radio" name="sexo" id="sexoM" value="1"> M
             <input type="radio" name="sexo" id="sexoF" value="2"> F
             <br><br>
             <label for="nome">E-mail:</label>
-            <input type="email" name="email" id="email" size="40">
+            <input type="text" name="email" id="email" size="40">
             <br><br>
             <label for="navegadores">Nevegador preferido: </label>
             <select name="navegadores" selected="Browser">
@@ -64,7 +73,13 @@
                     <input type="checkbox" name="esporte" value="4"> Volei
                     <input type="checkbox" name="esporte" value="5"> Handbol
             </div>
-            <button type="submit" class="btn btn-primary" id='botao'> Enviar</button>    
+            <br>
+            <label for="conteudo">Comentario sobre o esporte preferido: </label>
+            <br>
+            <textarea name="conteudo" rows="6" cols="50"  id="comentario"></textarea>  
+            <br>
+            <button type="submit" class="btn btn-primary" id='enviar'> Enviar</button>
+            <button type="submit" class="btn btn-primary" id='limpar'> Limpar</button>  
         </form>
     </body>
 </html>
