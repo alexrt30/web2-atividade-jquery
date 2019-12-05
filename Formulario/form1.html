@@ -7,32 +7,27 @@
                     var erros = []
                     $("#enviar").click(()=>{
                         
-                        nome = $("#nome").val()
-                        if(!nome || nome == undefined || nome == null){
-                            erros.push("\n"+"Nome inválido")
-                        }
-                        email = $("#email").val() 
-                        if(!email || email == undefined || email == null){
-                            erros.push("\n"+"E-mail inválido")
-                        }
-                        sexo = $("input[name=sexo]:checked").val()
-                        if(!sexo || sexo == undefined || sexo == null){
-                            erros.push("\n"+"Por Favor Escolha Preencha seu Genero")
-                        }
-                        navegador = $("select[name=navegadores]").val()
-                        if(!navegador || navegador == undefined || navegador == null){
-                            erros.push("\n"+"Por Favor Escolha um navegador")
-                        }
-                        esporte = $("input[name=esporte]:checked").val()
-                        if(!esporte || esporte == undefined || esporte == null){
-                            erros.push("\n"+"Por Favor Escolha um navegador")
-                        }
-                        comentario = $("#comentario").val()
-                        if(!comentario || comentario == undefined || comentario == null){
-                            erros.push("\n"+"Contario inválido")
-                        }
+                        check($("input[name=nome]"))
+                             
+                        check($("#email"))
+
+                        //check($("input[name=sexo]:checked"))
+
+                        check($("select[name=navegadores]"))
+
+                        //check($("input[name=esporte]:checked"))
+
+                        check($("#comentario"))
+
                         alert(erros);
                     })
+
+                    function check(componente){            
+                        if(componente.val() == "" || componente.val() == undefined || componente.val() == null){
+                            erros.push("\n" + componente.attr("name") + " inválido")
+                            //alert(componente.attr("name"));
+                        } 
+                    }
 
                     $("#limpar").click(()=>{
                         
@@ -50,7 +45,7 @@
     <body>
         <form name="calc">
             <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" size="40">
+            <input name="nome" id="nome" size="40">
             <label>Sexo:</label>
             <input type="radio" name="sexo" id="sexoM" value="1"> M
             <input type="radio" name="sexo" id="sexoF" value="2"> F
@@ -59,20 +54,20 @@
             <input type="text" name="email" id="email" size="40">
             <br><br>
             <label for="navegadores">Nevegador preferido: </label>
-            <select name="navegadores" selected="Browser">
+            <select name="navegadores" value="">
                 <option value="1">Goggle Chrome</option>
                 <option value="2">Safari</option>
                 <option value="3">Mozilla Firefox</option>
                 <option value="4">Microsoft Edge</option>
             </select>
             <br><br>
-            <div>
+            
                     <input type="checkbox" name="esporte" value="1"> Futebol
                     <input type="checkbox" name="esporte" value="2"> Basquet
                     <input type="checkbox" name="esporte" value="3"> Tenis
                     <input type="checkbox" name="esporte" value="4"> Volei
                     <input type="checkbox" name="esporte" value="5"> Handbol
-            </div>
+            
             <br>
             <label for="conteudo">Comentario sobre o esporte preferido: </label>
             <br>
